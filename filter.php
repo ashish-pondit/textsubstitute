@@ -24,20 +24,14 @@
  */
 
 class filter_textsubstitute extends moodle_text_filter {
-    function filter($text, array $options = []) {
+    public function filter($text, array $options = []) {
         if (!isset($options['originalformat'])) {
-            // if the format is not specified, we are probably called by {@see format_string()}
-            // in that case, it would be dangerous to replace text with the image because it could
-            // be stripped. therefore, we do nothing
             return $text;
         }
         if (in_array($options['originalformat'], explode(',', get_config('filter_textsubstitute', 'formats')))) {
             return $this->replace_word($text);
         }
         return $text;
-
-
-
     }
 
     protected function replace_word($text) {

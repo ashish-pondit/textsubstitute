@@ -72,7 +72,7 @@ class filter_test extends \advanced_testcase {
      *
      * @return string[]
      */
-    public function filter_textsubstitute_provider(): array {
+    public static function filter_textsubstitute_provider(): array {
         return [
                 'All formats allowed - html' => [
                         'searchterm' => 'Moodle',
@@ -88,7 +88,8 @@ class filter_test extends \advanced_testcase {
                         'formats' => FORMAT_HTML,
                         'originalformat' => FORMAT_HTML,
                         'inputtext' => '<em>Moodle</em> is a popular LMS. You can download Moodle for free. MOODLE 4.2 is here.',
-                        'expectedtext' => '<em>Workplace</em> is a popular LMS. You can download Workplace for free. MOODLE 4.2 is here.',
+                        'expectedtext' => '<em>Workplace</em> is a popular LMS. ' .
+                                'You can download Workplace for free. MOODLE 4.2 is here.',
                 ],
         ];
     }
